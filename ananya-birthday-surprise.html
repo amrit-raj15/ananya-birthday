@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A surprise for Ananya</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fraunces:wght@600;700&family=Nunito:wght@600;700&display=swap">
+<style>
+:root{--ink:#2b2340;--a:#fdf2f6;--b:#e9e4fb;--c:#fff6d6;--pink:#ec5b8a;--pinkd:#c23f6b;--paper:#fff;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#f6efff;--a:#3a2547;--b:#2a2a5a;--c:#4a3a3a;--paper:#f6efff}}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+body{margin:0;height:100%;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:#141a3d;overflow:hidden}
+.scene{position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 22px;
+  padding-top:calc(24px + env(safe-area-inset-top,0px));padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));overflow:hidden}
+.scene.on{display:flex;animation:fade .6s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.script{font-family:Caveat,cursive;font-weight:600;font-size:26px;color:var(--pink);margin:0 0 6px}
+h1,h2{font-family:Fraunces,Georgia,serif;font-weight:700;margin:0;line-height:1.12}
+h1{font-size:clamp(34px,10vw,52px)}
+h2{font-size:clamp(30px,9vw,44px)}
+p.t{font-size:17px;line-height:1.5;margin:12px 0 0;max-width:30ch}
+.btn{font-family:Nunito,sans-serif;font-weight:700;font-size:18px;color:#fff;background:var(--pink);border:2px dashed #ffffffaa;border-radius:999px;padding:14px 30px;margin-top:24px;cursor:pointer;box-shadow:0 6px 0 var(--pinkd),0 12px 22px #ec5b8a44}
+.btn:active{transform:translateY(3px);box-shadow:0 3px 0 var(--pinkd)}
+.btn.sun{background:#ffd54a;color:#4a3600;box-shadow:0 6px 0 #d1a419,0 0 30px #ffd54a66}
+.btn.ghost{background:#fff;color:var(--pinkd);box-shadow:0 6px 0 #e3c3d0}
+.link{background:none;border:0;color:inherit;opacity:.7;margin-top:14px;font:inherit;font-size:15px;text-decoration:underline;cursor:pointer}
+button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.emoji{font-size:84px;line-height:1}
+/* scene 0 envelope */
+#s0{background:radial-gradient(circle at 20% 15%,var(--a),transparent 60%),linear-gradient(160deg,var(--a),var(--b))}
+.env{position:relative;width:250px;height:165px;margin:56px auto 8px}
+.env div{position:absolute}
+.eb{inset:0;background:#e2bf82;border-radius:8px}
+.paper{left:16px;right:16px;top:16px;height:138px;background:radial-gradient(#9fc7ee 1.6px,transparent 2px) 0 0/14px 14px,#eaf4ff;border-radius:6px;z-index:1;transition:transform .9s ease;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.paper small{font-family:Caveat,cursive;font-size:22px;color:#6b5b7a}.paper b{font-family:Caveat,cursive;font-size:40px;color:var(--pinkd)}
+.ef{inset:0;background:#efd09a;clip-path:polygon(0 0,50% 54%,100% 0,100% 100%,0 100%);z-index:2;border-radius:8px}
+.fl{left:0;right:0;top:0;height:54%;background:#f4dba8;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;z-index:3;transition:transform .7s ease}
+.seal{left:50%;top:44%;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:#8b3c58;z-index:4;font-size:18px;line-height:34px;color:#fff;transition:opacity .3s}
+.env.open .fl{transform:rotateX(180deg);z-index:0}.env.open .seal{opacity:0}.env.open .paper{transform:translateY(-84px)}
+/* scene 1 dark */
+#s1{background:radial-gradient(1.5px 1.5px at 20% 30%,#fff,transparent),radial-gradient(1.5px 1.5px at 70% 20%,#fff,transparent),radial-gradient(2px 2px at 85% 60%,#fff,transparent),radial-gradient(1.5px 1.5px at 35% 75%,#fff,transparent),radial-gradient(1px 1px at 55% 45%,#fff,transparent),linear-gradient(#1a1f4e,#2d2f7a);color:#f4f1ff}
+#s1 .script{color:#ffd54a}
+#s1 .emoji{position:absolute;left:20px;bottom:calc(30px + env(safe-area-inset-bottom,0px));opacity:.5;font-size:70px}
+/* scene 2 */
+#s2{background:repeating-linear-gradient(90deg,#fff6d6 0 36px,#e5e0fa 36px 72px)}
+#s2::after{content:"";position:absolute;left:0;right:0;bottom:0;height:16%;background:#f9c8d4;border-top:10px solid #8fd8c3}
+.bunt{position:absolute;top:0;left:0;width:100%;height:70px}
+.balls{font-size:64px;letter-spacing:-8px;margin-top:20px;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+#s2>*{position:relative;z-index:1}
+#s2 .t,#s2 h1{color:#2b2340}
+.card2{background:#ffffffcc;padding:20px 22px;border-radius:22px}
+/* scene 3 cake */
+#s3{background:radial-gradient(circle at 50% 70%,#fff3b8,transparent 65%),linear-gradient(#fff,#fdeee6);color:#2b2340}
+.cake{position:relative;width:260px;height:240px;margin-top:18px;touch-action:none;user-select:none}
+.half{position:absolute;top:0;bottom:0;width:50%;overflow:hidden;transition:transform .8s cubic-bezier(.2,1.2,.4,1)}
+.half.l{left:0}.half.r{right:0}.half.r svg{margin-left:-100%}
+.cake svg{width:260px;height:240px;display:block}
+.cake.cut .l{transform:translateX(-16px) rotate(-3deg)}.cake.cut .r{transform:translateX(16px) rotate(3deg)}
+.guide{position:absolute;left:50%;top:40px;bottom:10px;border-left:3px dashed #ec5b8a99;transition:opacity .3s}.cake.cut .guide{opacity:0}
+.fl2{transform-origin:50% 100%;animation:fk .5s ease-in-out infinite alternate}@keyframes fk{to{transform:scale(1.12,1.2)}}
+/* scene 4 */
+#s4{background:linear-gradient(#f2f5ff,#fde8f1);color:#2b2340}
+/* scene 5 */
+#s5{background:linear-gradient(160deg,#fbe6a8,#f6c4e1 55%,#cdbdf5);color:#2b2340}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:9}
+@media (prefers-reduced-motion:reduce){.balls,.fl2{animation:none}.scene.on{animation:none}}
+</style>
+</head>
+<body>
+
+<section class="scene on" id="s0">
+  <p class="script">a little something</p>
+  <h1>There’s something for you</h1>
+  <div class="env" id="env"><div class="eb"></div><div class="paper"><small>for</small><b>Ananya</b></div><div class="ef"></div><div class="fl"></div><div class="seal">★</div></div>
+  <button class="btn" id="open">Open your surprise ✨</button>
+</section>
+
+<section class="scene" id="s1">
+  <p class="script">Shhh...</p>
+  <h1>The room is waiting for you.</h1>
+  <p class="t">Someone left the lights off on purpose.</p>
+  <button class="btn sun" id="lights">Turn on the lights ✨</button>
+  <div class="emoji" aria-hidden="true">🧸</div>
+</section>
+
+<section class="scene" id="s2">
+  <svg class="bunt" viewBox="0 0 400 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8Q200 40 400 8" stroke="#8b6b4a" fill="none" stroke-width="2"/>
+    <polygon points="10,14 50,24 28,62" fill="#ffd54a"/><polygon points="80,26 122,32 100,66" fill="#8fd8c3"/><polygon points="150,32 192,34 170,68" fill="#f9a8c0"/><polygon points="220,34 262,32 240,68" fill="#b9a6f0"/><polygon points="290,32 332,26 310,66" fill="#ffd54a"/><polygon points="358,24 398,14 380,62" fill="#8fd8c3"/></svg>
+  <div class="card2">
+    <p class="script">Look who’s having a birthday...</p>
+    <h1>Happy Birthday, Ananya!</h1>
+  </div>
+  <div class="balls" aria-hidden="true">🎈🎈🎈</div>
+  <div class="emoji" aria-hidden="true">🧸🎁</div>
+  <button class="btn" id="more">There’s more ✨</button>
+</section>
+
+<section class="scene" id="s3">
+  <p class="script">Cake time</p>
+  <h2>Make the first cut</h2>
+  <p class="t" id="cuthint">Swipe down across the cake, top to bottom.</p>
+  <div class="cake" id="cake">
+    <div class="half l"><svg viewBox="0 0 260 240" id="cl"></svg></div>
+    <div class="half r"><svg viewBox="0 0 260 240" id="cr"></svg></div>
+    <div class="guide"></div>
+  </div>
+  <button class="link" id="cutbtn">Or tap here to cut</button>
+</section>
+
+<section class="scene" id="s4">
+  <div class="emoji" aria-hidden="true">🧸🎂</div>
+  <h2 style="margin-top:18px">Close your eyes...</h2>
+  <p class="t">Make a little wish for the year ahead.</p>
+  <button class="btn" id="wish">I made my wish ✨</button>
+</section>
+
+<section class="scene" id="s5">
+  <div class="emoji" aria-hidden="true">🧸🎈</div>
+  <h1 style="margin-top:18px">Happy Birthday, Ananya! 🎂</h1>
+  <p class="t">Wishing you a day full of laughter and everything you’ve been hoping for!</p>
+  <button class="btn ghost" id="replay">Replay the surprise ↻</button>
+</section>
+
+<canvas id="c"></canvas>
+<script>
+(function(){
+  var scenes=[].slice.call(document.querySelectorAll(".scene"));
+  function go(n){scenes.forEach(function(s,i){s.classList.toggle("on",i===n)});if(n===2||n===5)confetti(70)}
+  function $(id){return document.getElementById(id)}
+
+  // cake art, drawn twice (left and right half)
+  var cake='<ellipse cx="130" cy="228" rx="115" ry="9" fill="#e9dfe7"/><rect x="18" y="152" width="224" height="72" rx="14" fill="#f4739c"/><path d="M18 168q14 18 28 0t28 0 28 0 28 0 28 0 28 0 28 0 14 10v-26H18z" fill="#fff"/><rect x="44" y="100" width="172" height="56" rx="12" fill="#b9a6f0"/><path d="M44 116q14 16 28 0t28 0 28 0 28 0 28 0 28 0v-24H44z" fill="#fff"/><circle cx="70" cy="136" r="4" fill="#fff"/><circle cx="110" cy="140" r="4" fill="#fff"/><circle cx="150" cy="136" r="4" fill="#fff"/><circle cx="190" cy="140" r="4" fill="#fff"/><rect x="72" y="58" width="116" height="46" rx="12" fill="#ffd54a"/><path d="M72 72q14 14 29 0t29 0 29 0 29 0v-14H72z" fill="#f4739c"/><circle cx="96" cy="56" r="8" fill="#d62f55"/><circle cx="164" cy="56" r="8" fill="#d62f55"/><rect x="110" y="34" width="8" height="26" fill="#8fd8c3"/><rect x="126" y="30" width="8" height="30" fill="#f9a8c0"/><rect x="142" y="34" width="8" height="26" fill="#b9a6f0"/><path class="fl2" d="M114 14c7 8 6 14 0 17-6-3-7-9 0-17z" fill="#ffb12b"/><path class="fl2" d="M130 10c7 8 6 14 0 17-6-3-7-9 0-17z" fill="#ffb12b"/><path class="fl2" d="M146 14c7 8 6 14 0 17-6-3-7-9 0-17z" fill="#ffb12b"/>';
+  $("cl").innerHTML=cake;$("cr").innerHTML=cake;
+
+  // scene 0
+  $("open").onclick=function(){$("env").classList.add("open");$("open").disabled=true;setTimeout(function(){go(1)},1500)};
+  $("lights").onclick=function(){go(2)};
+  $("more").onclick=function(){go(3)};
+
+  // cake cutting
+  var cakeEl=$("cake"),cut=false,y0=null;
+  function doCut(){
+    if(cut)return;cut=true;cakeEl.classList.add("cut");
+    $("cuthint").textContent="Perfect cut!";$("cutbtn").style.display="none";
+    confetti(80);setTimeout(function(){go(4)},1700);
+  }
+  cakeEl.addEventListener("pointerdown",function(e){y0=e.clientY;try{cakeEl.setPointerCapture(e.pointerId)}catch(_){}});
+  cakeEl.addEventListener("pointermove",function(e){if(y0!==null&&e.clientY-y0>70){y0=null;doCut()}});
+  cakeEl.addEventListener("pointerup",function(){y0=null});
+  $("cutbtn").onclick=doCut;
+
+  $("wish").onclick=function(){go(5)};
+  $("replay").onclick=function(){
+    cut=false;cakeEl.classList.remove("cut");$("cuthint").textContent="Swipe down across the cake, top to bottom.";$("cutbtn").style.display="";
+    $("env").classList.remove("open");$("open").disabled=false;go(0);
+  };
+
+  // confetti
+  var cv=$("c"),ctx=cv.getContext("2d"),parts=[],run=false,cols=["#ec5b8a","#ffd54a","#8fd8c3","#b9a6f0","#6ab7ff","#ff9a76"];
+  function size(){cv.width=innerWidth;cv.height=innerHeight}size();addEventListener("resize",size);
+  function confetti(n){
+    for(var i=0;i<n;i++)parts.push({x:innerWidth*(.2+Math.random()*.6),y:innerHeight*.35,vx:(Math.random()-.5)*10,vy:-Math.random()*11-2,w:5+Math.random()*5,c:cols[i%cols.length],l:120,r:Math.random()*6});
+    if(!run){run=true;requestAnimationFrame(tick)}
+  }
+  function tick(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    parts=parts.filter(function(p){return p.l>0});
+    parts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.3;p.vx*=.99;p.l--;p.r+=.2;ctx.save();ctx.globalAlpha=Math.min(1,p.l/30);ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.c;ctx.fillRect(-p.w/2,-p.w/3,p.w,p.w*.6);ctx.restore()});
+    if(parts.length)requestAnimationFrame(tick);else{run=false;ctx.clearRect(0,0,cv.width,cv.height)}
+  }
+})();
+</script>
+</body>
+</html>
